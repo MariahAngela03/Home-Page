@@ -649,6 +649,81 @@ body.dark .logo-img-dynamic {
 body.dark .logo-img-dynamic:hover {
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
 }
+
+
+/* Photo Gallery Section CSS */
+.photo-gallery-section {
+    background-color: #ffffff; /* Light background */
+    padding: 6rem 0;
+    transition: background-color 0.3s ease;
+}
+
+body.dark .photo-gallery-section {
+    background-color: #1a1a1a; /* Dark background */
+}
+
+.main-image-container {
+    height: 500px; /* Fixed height for the main image */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+body.dark .main-image-container {
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+.main-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out; /* Fade transition for the image */
+}
+
+.thumbnail-item {
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Delay for each thumbnail animation */
+.thumbnail-item:nth-child(1) { transition-delay: 0.1s; }
+.thumbnail-item:nth-child(2) { transition-delay: 0.2s; }
+.thumbnail-item:nth-child(3) { transition-delay: 0.3s; }
+.thumbnail-item:nth-child(4) { transition-delay: 0.4s; }
+.thumbnail-item:nth-child(5) { transition-delay: 0.5s; }
+.thumbnail-item:nth-child(6) { transition-delay: 0.6s; }
+.thumbnail-item:nth-child(7) { transition-delay: 0.7s; }
+
+.thumbnail-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.thumbnail {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.thumbnail.active {
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+
+.thumbnail:hover {
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+
+body.dark .thumbnail.active,
+body.dark .thumbnail:hover {
+    border-color: #00aaff;
+}
 </style>
 </head>
 <body class="light">
@@ -866,6 +941,43 @@ body.dark .logo-img-dynamic:hover {
   </div>
 </section>
 
+
+<section class="photo-gallery-section py-5">
+    <div class="container text-center">
+        <h2 class="section-title mb-5" style="font-weight: bold;">PHOTO GALLERY</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="main-image-container mb-4">
+                    <img id="main-gallery-image" src="css/img/picture9.jpg" alt="Main gallery image" class="img-fluid rounded-3">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center g-3">
+            <div class="col-3 col-sm-2 col-md-2 col-lg-1 d-flex flex-column align-items-center thumbnail-item visible">
+                <img src="css/img/picture9.jpg" alt="Thumbnail 1" class="img-fluid rounded-3 thumbnail active" onclick="changeImage('css/img/picture9.jpg', this)">
+            </div>
+            <div class="col-3 col-sm-2 col-md-2 col-lg-1 d-flex flex-column align-items-center thumbnail-item">
+                <img src="css/img/picture10.jpg" alt="Thumbnail 2" class="img-fluid rounded-3 thumbnail" onclick="changeImage('css/img/picture10.jpg', this)">
+            </div>
+            <div class="col-3 col-sm-2 col-md-2 col-lg-1 d-flex flex-column align-items-center thumbnail-item">
+                <img src="css/img/picture11.jpg" alt="Thumbnail 3" class="img-fluid rounded-3 thumbnail" onclick="changeImage('css/img/picture11.jpg', this)">
+            </div>
+            <div class="col-3 col-sm-2 col-md-2 col-lg-1 d-flex flex-column align-items-center thumbnail-item">
+                <img src="css/img/picture12.jpg" alt="Thumbnail 4" class="img-fluid rounded-3 thumbnail" onclick="changeImage('css/img/picture12.jpg', this)">
+            </div>
+            <div class="col-3 col-sm-2 col-md-2 col-lg-1 d-flex flex-column align-items-center thumbnail-item">
+                <img src="css/img/picture13.jpg" alt="Thumbnail 5" class="img-fluid rounded-3 thumbnail" onclick="changeImage('css/img/picture13.jpg', this)">
+            </div>
+            <div class="col-3 col-sm-2 col-md-2 col-lg-1 d-flex flex-column align-items-center thumbnail-item">
+                <img src="css/img/picture14.jpg" alt="Thumbnail 6" class="img-fluid rounded-3 thumbnail" onclick="changeImage('css/img/picture14.jpg', this)">
+            </div>
+            <div class="col-3 col-sm-2 col-md-2 col-lg-1 d-flex flex-column align-items-center thumbnail-item">
+                <img src="css/img/picture15.jpg" alt="Thumbnail 7" class="img-fluid rounded-3 thumbnail" onclick="changeImage('css/img/picture15.jpg', this)">
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Bootstrap 5 JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     
@@ -1005,6 +1117,52 @@ body.dark .logo-img-dynamic:hover {
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
         logoItems.forEach(item => {
+            observer.observe(item);
+        });
+    });
+
+
+       // Photo Gallery JavaScript
+    function changeImage(src, element) {
+        const mainImage = document.getElementById('main-gallery-image');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+
+        // Remove active class from all thumbnails
+        thumbnails.forEach(thumbnail => thumbnail.classList.remove('active'));
+
+        // Add active class to the clicked thumbnail
+        element.classList.add('active');
+
+        // Fade out the old image, change src, then fade it back in
+        mainImage.style.opacity = 0;
+        setTimeout(() => {
+            mainImage.src = src;
+            mainImage.style.opacity = 1;
+        }, 300); // Wait for 300ms for the fade-out transition
+    }
+
+    // Intersection Observer for the photo gallery thumbnails
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryThumbnails = document.querySelectorAll('.thumbnail-item');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        galleryThumbnails.forEach(item => {
             observer.observe(item);
         });
     });
