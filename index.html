@@ -443,42 +443,48 @@ body.dark .section-title {
         }
     }
 
-    /* Style for the new line indicators */
+/* Fix the carousel indicators position and size */
+.carousel-card-image {
+    position: relative; /* This is essential for absolute positioning of child elements */
+}
+
 .carousel-indicators {
-    position: relative; /* Change from 'static' to 'relative' to control its position */
-    margin-top: 1rem;
-    margin-bottom: 0;
+    position: absolute;
+    bottom: 10px; /* Positions the indicators 10px from the bottom of the image */
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0; /* Remove default margins */
     display: flex;
     justify-content: center;
-    list-style: none; /* Hide bullets */
+    list-style: none;
     padding: 0;
 }
 
 .carousel-indicators [data-bs-target] {
-    width: 60px; /* Make the lines longer */
+    width: 40px; /* Increased size for better visibility */
     height: 3px;
-    background-color: #ced4da; /* Light gray for inactive lines */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for contrast on light images */
     border: none;
-    opacity: 1; /* Keep them visible */
+    opacity: 1;
     transition: background-color 0.3s ease;
-    margin: 0 5px;
+    margin: 0 4px; /* Adjusted spacing between indicators */
     border-radius: 0;
 }
 
 .carousel-indicators .active {
-    background-color: #007bff; /* Primary color for active line */
+    background-color: #0056b3; /* Solid black for the active indicator */
 }
 
-/* Dark mode styles for indicators */
+/* Dark mode styles for indicators to ensure visibility on light images in dark theme */
 body.dark .carousel-indicators [data-bs-target] {
-    background-color: #495057; /* Darker gray for inactive lines */
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 body.dark .carousel-indicators .active {
-    background-color: #00aaff; /* Lighter primary color for active line */
+    background-color: white;
 }
 
-/* Hide the prev/next buttons completely */
+/* Hide the carousel prev/next buttons as requested */
 .carousel-control-prev,
 .carousel-control-next {
     display: none;
@@ -568,7 +574,7 @@ body.dark .carousel-indicators .active {
             <div class="col-md-6 mb-4 mb-md-0">
                 <div class="d-flex flex-column align-items-center">
                     <div class="card carousel-card-image w-100">
-                        <div id="getItSoldImageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                        <div id="getItSoldImageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <img src="css/img/picture2.jpg" class="d-block w-100 rounded" alt="Modern kitchen with large island">
@@ -577,15 +583,15 @@ body.dark .carousel-indicators .active {
                                     <img src="css/img/picture3.jpg" class="d-block w-100 rounded" alt="Luxury home with a pool">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https/img/picture4.jpg" class="d-block w-100 rounded" alt="Keys with a house keychain">
+                                    <img src="image_9f7f1a.jpg" class="d-block w-100 rounded" alt="Keys with a house keychain">
                                 </div>
                             </div>
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
                 </div>
             </div>
@@ -686,7 +692,7 @@ body.dark .carousel-indicators .active {
     });
 
 
-   // Data for the descriptions, matching the carousel slides
+  // Data for the descriptions, matching the carousel slides
     const descriptions = [
         {
             title: 'Top Residential Sales Last 5 Years',
@@ -706,6 +712,7 @@ body.dark .carousel-indicators .active {
     const imageCarousel = document.getElementById('getItSoldImageCarousel');
     const descriptionTitle = document.getElementById('description-title');
     const descriptionText = document.getElementById('description-text');
+    const descriptionIndicator = document.getElementById('description-indicator');
 
     // Add an event listener to the carousel
     imageCarousel.addEventListener('slid.bs.carousel', function (e) {
