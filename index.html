@@ -595,6 +595,7 @@ body.light .btn-search-alt2:hover {
 }
 
 
+
 /* New CSS for Card Flip Animation */
 .partners-section {
     padding: 6rem 0;
@@ -608,18 +609,19 @@ body.dark .partners-section {
 
 .flip-card-container {
     perspective: 1000px;
+    height: 250px; /* Match flip-card height */
 }
 
 .flip-card {
     position: relative;
     width: 100%;
-    height: 250px; /* Adjust as needed */
+    height: 100%;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
 
-.flip-card:hover {
+.flip-card-container:hover .flip-card {
     transform: rotateY(180deg);
 }
 
@@ -636,13 +638,23 @@ body.dark .partners-section {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    transition: background-color 0.3s ease;
+    transition: transform 0.8s, background-color 0.3s ease;
 }
 
 body.dark .flip-card-front,
 body.dark .flip-card-back {
     background-color: #343a40;
     color: #fff;
+}
+
+/* Set initial and hover states explicitly */
+.flip-card-front {
+    transform: rotateY(0deg);
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    flex-direction: column;
 }
 
 .flip-card-front img {
@@ -654,15 +666,11 @@ body.dark .flip-card-back {
     transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-.flip-card:hover .flip-card-front img {
+.flip-card-container:hover .flip-card-front img {
     filter: grayscale(0%);
     opacity: 1;
 }
 
-.flip-card-back {
-    transform: rotateY(180deg);
-    flex-direction: column;
-}
 
 .flip-card-back h5 {
     font-weight: 700;
@@ -670,6 +678,7 @@ body.dark .flip-card-back {
 }
 
 
+/*Photo Gallery*/
 .main-image-container {
     height: 500px; /* Fixed height for the main image */
     overflow: hidden;
@@ -734,122 +743,6 @@ body.dark .thumbnail:hover {
 }
 
 
-/* New CSS for Card Flip Animation */
-.partners-section {
-    padding: 6rem 0;
-    background-color: #f8f9fa;
-    transition: background-color 0.3s ease;
-}
-
-body.dark .partners-section {
-    background-color: #212529;
-}
-
-.flip-card-container {
-    perspective: 1000px;
-}
-
-.flip-card {
-    position: relative;
-    width: 100%;
-    height: 250px; /* Adjust as needed */
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-body.dark .flip-card-front,
-body.dark .flip-card-back {
-    background-color: #343a40;
-    color: #fff;
-}
-
-.flip-card-front img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.8;
-    transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-.flip-card:hover .flip-card-front img {
-    filter: grayscale(0%);
-    opacity: 1;
-}
-
-.flip-card-back {
-    transform: rotateY(180deg);
-    flex-direction: column;
-}
-
-.flip-card-back h5 {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-/* Featured Services Section with Animated SVG */
-.services-section {
-    padding: 6rem 0;
-    background-color: #ffffff;
-    transition: background-color 0.3s ease;
-}
-
-body.dark .services-section {
-    background-color: #1a1a1a;
-}
-
-.services-item {
-    text-align: center;
-}
-
-.services-item svg {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 1rem;
-    stroke: #007bff;
-    stroke-width: 2px;
-    fill: none;
-    transition: stroke 0.3s ease;
-}
-
-body.dark .services-item svg {
-    stroke: #00aaff;
-}
-
-.services-item:hover svg #house-path {
-    animation: draw 2s ease-in-out forwards;
-}
-
-@keyframes draw {
-    from {
-        stroke-dasharray: 2000;
-        stroke-dashoffset: 2000;
-    }
-    to {
-        stroke-dashoffset: 0;
-    }
-}
 </style>
 </head>
 <body class="light">
@@ -1049,7 +942,6 @@ body.dark .services-item svg {
 
 <section class="partners-section py-5">
     <div class="container text-center">
-        <h2 class="section-title mb-5">Our Partners and Affiliations</h2>
         <div class="row g-4 justify-content-center">
             <div class="col-6 col-sm-4 col-md-3 flip-card-container">
                 <div class="flip-card">
