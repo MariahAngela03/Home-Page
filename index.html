@@ -333,6 +333,115 @@ body.dark .btn-contact:hover {
 body.dark .section-title {
     color: #ffffff;
 }
+
+    /* Add this CSS block or merge with your existing styles */
+    .get-it-sold-section {
+        background-color: #f8f9fa;
+        padding: 5rem 2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    body.dark .get-it-sold-section {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+
+    .carousel-card-image,
+    .carousel-card-content {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        position: relative; /* Needed for carousel controls */
+    }
+
+    body.dark .carousel-card-image,
+    body.dark .carousel-card-content {
+        background-color: #212529;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .carousel-card-image img {
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .carousel-card-content .card-body {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    body.dark .card-title {
+        color: #ffffff;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #6c757d;
+        line-height: 1.6;
+    }
+
+    body.dark .card-text {
+        color: #ced4da;
+    }
+
+    /* Custom controls styling - now placed on the image card */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 15%; /* Make buttons smaller */
+    }
+
+    /* Override Bootstrap's carousel transition speed */
+    .carousel-item {
+        transition: transform 1.5s ease-in-out !important;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #007bff;
+        border-radius: 50%;
+        padding: 1.5rem;
+        transition: background-color 0.3s ease;
+    }
+    
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+        background-color: #0056b3;
+    }
+
+    body.dark .carousel-control-prev-icon,
+    body.dark .carousel-control-next-icon {
+        background-color: #00aaff;
+    }
+
+    body.dark .carousel-control-prev-icon:hover,
+    body.dark .carousel-control-next-icon:hover {
+        background-color: #007bbd;
+    }
+    
+    /* Hide the indicators as they are no longer needed */
+    .carousel-indicators {
+        display: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767.98px) {
+        .carousel-card-image img {
+            height: 250px;
+        }
+    }
 </style>
 </head>
 <body class="light">
@@ -403,6 +512,48 @@ body.dark .section-title {
                             <p class="contact-info">REALTOR FOR NEARLY 3 DECADES!</p>
                             <a href="tel:206-919-6886" class="btn btn-primary btn-contact mt-3">Call Marci Today: 206-919-6886</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="get-it-sold" class="get-it-sold-section py-5">
+    <div class="container text-center">
+        <h2 class="section-title mb-5">GET IT SOLD</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <div class="card carousel-card-image">
+                    <div id="getItSoldImageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="css/img/picture2.jpg" class="d-block w-100 rounded" alt="Modern kitchen with large island">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="css/img/picture3.jpg" class="d-block w-100 rounded" alt="Luxury home with a pool">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https/img/picture4.jpg" class="d-block w-100 rounded" alt="Keys with a house keychain">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card carousel-card-content">
+                    <div class="card-body">
+                        <h5 class="card-title" id="description-title">Top Residential Sales Last 5 Years</h5>
+                        <p class="card-text" id="description-text">We're proud to be in the top 1% of all residential sales in the US, with over 25 million homes sold. Our commitment is to quality and integrity, so that we can continue to serve our clients. We believe in our team and client, and we want to make our bond better every year.</p>
                     </div>
                 </div>
             </div>
@@ -492,6 +643,38 @@ body.dark .section-title {
         
         // Start the animation
         setTimeout(type, 1500);
+    });
+
+
+        // Data for the descriptions, matching the carousel slides
+    const descriptions = [
+        {
+            title: 'Top Residential Sales Last 5 Years',
+            text: "We're proud to be in the top 1% of all residential sales in the US, with over 25 million homes sold. Our commitment is to quality and integrity, so that we can continue to serve our clients. We believe in our team and client, and we want to make our bond better every year."
+        },
+        {
+            title: "Don't Just List It...",
+            text: "GET IT SOLD. We'll exhaust every possible avenue to get your property at the fingertips of every possible buyer, getting you top dollar for your home."
+        },
+        {
+            title: "Guide to Buyers",
+            text: "Nobody knows the market like we do. Our team will guide you to your perfect home. We will analyze, negotiate with contractors, loan agreements, and more."
+        }
+    ];
+
+    // Get the carousel and description elements
+    const imageCarousel = document.getElementById('getItSoldImageCarousel');
+    const descriptionTitle = document.getElementById('description-title');
+    const descriptionText = document.getElementById('description-text');
+
+    // Add an event listener to the carousel
+    imageCarousel.addEventListener('slid.bs.carousel', function (e) {
+        // Get the index of the newly active slide
+        const activeIndex = e.to;
+
+        // Update the description text based on the active index
+        descriptionTitle.textContent = descriptions[activeIndex].title;
+        descriptionText.textContent = descriptions[activeIndex].text;
     });
 </script>
 </body>
