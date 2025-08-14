@@ -595,46 +595,59 @@ body.light .btn-search-alt2:hover {
 }
 
 
-/* Alternative Logos Section Styles */
-.logos-section-alt {
-    background-color: #f8f9fa; /* Light background for contrast */
-    padding: 5rem 0;
+/* Dynamic Logos Section Styles */
+.dynamic-logos-section {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 6rem 0;
     transition: background-color 0.3s ease;
 }
 
-body.dark .logos-section-alt {
+body.dark .dynamic-logos-section {
     background-color: #212529; /* Dark background */
 }
 
-.logos-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+/* Base style for each logo container */
+.logo-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.logo-img {
-    height: 80px; /* Larger logo size */
-    max-width: 100%; /* Ensure images don't overflow */
+/* Class added by JS to trigger the animation */
+.logo-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Individual logo image styling */
+.logo-img-dynamic {
+    height: 100px;
+    max-width: 100%;
     object-fit: contain;
+    padding: 15px;
     filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all 0.4s ease-in-out;
-    margin: 1rem;
+    opacity: 0.8;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.logo-img:hover {
+/* Hover effect */
+.logo-img-dynamic:hover {
     filter: grayscale(0%);
     opacity: 1;
-    transform: scale(1.1);
+    transform: translateY(-10px) scale(1.05); /* Lifts up and scales slightly */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Adds a more pronounced shadow */
 }
 
-/* Make logos larger on larger screens */
-@media (min-width: 992px) {
-    .logo-img {
-        height: 100px;
-        margin: 1.5rem;
-    }
+body.dark .logo-img-dynamic {
+    background-color: #343a40;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .logo-img-dynamic:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
 }
 </style>
 </head>
@@ -833,25 +846,25 @@ body.dark .logos-section-alt {
 </section>
 
 
-<section class="logos-section-alt py-5">
+<section class="dynamic-logos-section py-5">
   <div class="container text-center">
-    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 g-4 logos-grid">
-      <div class="col d-flex justify-content-center">
-        <img src="css/img/picture5.jpg" alt="The Ridge Realty Group" class="logo-img">
+    <h2 class="section-title mb-5">Our Partners and Affiliations</h2>
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 g-4 justify-content-center">
+      <div class="col logo-item">
+        <img src="css/img/picture5.jpg" alt="The Ridge Realty Group Logo" class="logo-img-dynamic">
       </div>
-      <div class="col d-flex justify-content-center">
-        <img src="css/img/picture6.jpg" alt="Equal Housing Opportunity" class="logo-img">
+      <div class="col logo-item">
+        <img src="css/img/picture6.jpg" alt="Equal Housing Opportunity Logo" class="logo-img-dynamic">
       </div>
-      <div class="col d-flex justify-content-center">
-        <img src="css/img/picture7.jpg" alt="Realtor" class="logo-img">
+      <div class="col logo-item">
+        <img src="css/img/picture7.jpg" alt="Realtor Logo" class="logo-img-dynamic">
       </div>
-      <div class="col d-flex justify-content-center">
-        <img src="css/img/picture8.jpg" alt="Pahrump Valley Chamber of Commerce" class="logo-img">
+      <div class="col logo-item">
+        <img src="css/img/picture8.jpg" alt="Pahrump Valley Chamber of Commerce Logo" class="logo-img-dynamic">
       </div>
     </div>
   </div>
 </section>
-
 
     <!-- Bootstrap 5 JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
@@ -968,6 +981,32 @@ body.dark .logos-section-alt {
         // Update the description text based on the active index
         descriptionTitle.textContent = descriptions[activeIndex].title;
         descriptionText.textContent = descriptions[activeIndex].text;
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const logoItems = document.querySelectorAll('.logo-item');
+
+        const observerOptions = {
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.5 // trigger when 50% of the item is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        logoItems.forEach(item => {
+            observer.observe(item);
+        });
     });
 </script>
 </body>
