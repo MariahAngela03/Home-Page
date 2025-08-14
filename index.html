@@ -489,6 +489,105 @@ body.dark .carousel-indicators .active {
 .carousel-control-next {
     display: none;
 }
+
+/* CSS for Alternate Design 2 */
+.hero-search-section-alt2 {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+body.light .hero-search-section-alt2 {
+  color: #212529; /* Dark color for light theme */
+}
+
+.background-image-container-alt2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('css/img/dining.jpg'); /* Use your image here */
+    background-size: cover;
+    background-position: center;
+    opacity: 30%;
+}
+
+body.dark .background-image-container-alt2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('css/img/dining.jpg'); /* Use your image here */
+    background-size: cover;
+    background-position: center;
+    opacity: 10%;
+}
+
+
+.search-overlay-alt2 {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: 3rem 1rem;
+}
+
+.hero-title-alt2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle-alt2 {
+    font-size: 1.50rem;
+    font-weight: 350;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.search-card-alt2 {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+
+.search-title-alt2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* New CSS for the Search Card in Dark Mode */
+body.dark .search-card-alt2 {
+  background-color: rgba(33, 37, 41, 0.95); /* Dark background for the card */
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+}
+
+body.dark .search-title-alt2 {
+  color: #ffffff; /* White text for dark mode */
+}
+
+.btn-search-alt2 {
+    background-color: #007bff;
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-search-alt2:hover {
+    background-color: #0056b3;
+}
 </style>
 </head>
 <body class="light">
@@ -606,6 +705,85 @@ body.dark .carousel-indicators .active {
         </div>
     </div>
 </section>
+
+
+<section class="hero-search-section-alt2">
+  <div class="background-image-container-alt2"></div>
+  <div class="search-overlay-alt2">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+          <h1 class="hero-title-alt2">FIND YOUR DREAM HOME</h1>
+          <p class="hero-subtitle-alt2">Your next chapter begins here. Explore listings and connect with us to find the perfect place.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="search-card-alt2">
+            <h2 class="search-title-alt2">SEARCH LISTINGS</h2>
+            <form action="#" method="get" class="search-form-alt2">
+              <div class="mb-3">
+                <select class="form-select" aria-label="Location">
+                  <option selected disabled hidden>Location</option>
+                  <option value="1">Las Vegas, NV</option>
+                  <option value="2">Pahrump, NV</option>
+                  <option value="3">Henderson, NV</option>
+                  <option value="4">Summerlin, NV</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <select class="form-select" aria-label="Property Type">
+                  <option selected disabled hidden>Type</option>
+                  <option value="1">House</option>
+                  <option value="2">Condo</option>
+                  <option value="3">Townhouse</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <select class="form-select" aria-label="Sort By">
+                  <option selected disabled hidden>Sort by</option>
+                  <option value="1">Price: Low to High</option>
+                  <option value="2">Price: High to Low</option>
+                  <option value="3">Newest Listings</option>
+                </select>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <select class="form-select" aria-label="Bedrooms">
+                    <option selected disabled hidden>Bedrooms</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <select class="form-select" aria-label="Baths">
+                    <option selected disabled hidden>Baths</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                  </select>
+                </div>
+              </div>
+               <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <input type="text" class="form-control" placeholder="Min Price" aria-label="Minimum Price">
+                </div>
+                <div class="col-6">
+                  <input type="text" class="form-control" placeholder="Max Price" aria-label="Maximum Price">
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-search-alt2">SEARCH NOW</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Bootstrap 5 JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
