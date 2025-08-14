@@ -442,6 +442,47 @@ body.dark .section-title {
             height: 250px;
         }
     }
+
+    /* Style for the new line indicators */
+.carousel-indicators {
+    position: relative; /* Change from 'static' to 'relative' to control its position */
+    margin-top: 1rem;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    list-style: none; /* Hide bullets */
+    padding: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 60px; /* Make the lines longer */
+    height: 3px;
+    background-color: #ced4da; /* Light gray for inactive lines */
+    border: none;
+    opacity: 1; /* Keep them visible */
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+    border-radius: 0;
+}
+
+.carousel-indicators .active {
+    background-color: #007bff; /* Primary color for active line */
+}
+
+/* Dark mode styles for indicators */
+body.dark .carousel-indicators [data-bs-target] {
+    background-color: #495057; /* Darker gray for inactive lines */
+}
+
+body.dark .carousel-indicators .active {
+    background-color: #00aaff; /* Lighter primary color for active line */
+}
+
+/* Hide the prev/next buttons completely */
+.carousel-control-prev,
+.carousel-control-next {
+    display: none;
+}
 </style>
 </head>
 <body class="light">
@@ -522,30 +563,29 @@ body.dark .section-title {
 
 <section id="get-it-sold" class="get-it-sold-section py-5">
     <div class="container text-center">
-        <h2 class="section-title mb-5">GET IT SOLD</h2>
+        <h2 class="section-title mb-5" style="font-weight: bold;">GET IT SOLD</h2>
         <div class="row align-items-center">
             <div class="col-md-6 mb-4 mb-md-0">
-                <div class="card carousel-card-image">
-                    <div id="getItSoldImageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="css/img/picture2.jpg" class="d-block w-100 rounded" alt="Modern kitchen with large island">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="css/img/picture3.jpg" class="d-block w-100 rounded" alt="Luxury home with a pool">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https/img/picture4.jpg" class="d-block w-100 rounded" alt="Keys with a house keychain">
+                <div class="d-flex flex-column align-items-center">
+                    <div class="card carousel-card-image w-100">
+                        <div id="getItSoldImageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="css/img/picture2.jpg" class="d-block w-100 rounded" alt="Modern kitchen with large island">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="css/img/picture3.jpg" class="d-block w-100 rounded" alt="Luxury home with a pool">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https/img/picture4.jpg" class="d-block w-100 rounded" alt="Keys with a house keychain">
+                                </div>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                    </div>
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#getItSoldImageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
                 </div>
             </div>
