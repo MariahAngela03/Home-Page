@@ -66,6 +66,13 @@
             color: var(--primary-color) !important;
         }
 
+        /* FIX: This selector specifically targets the .nav-link inside the mobile menu and removes the blue line */
+        @media (max-width: 991.98px) {
+            .navbar-collapse .nav-link::after {
+                display: none;
+            }
+        }
+
         .navbar-nav .nav-link::after {
             content: '';
             position: absolute;
