@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 Navigation Bar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --navbar-padding: 1rem 2rem;
+        }
+
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Light mode (default) */
+        body.light {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        /* Dark mode */
+        body.dark {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .navbar-custom {
+            padding: var(--navbar-padding);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        body.dark .navbar-custom {
+            background-color: #1a1a1a !important;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        body.light .navbar-custom {
+            background-color: #ffffff !important;
+        }
+
+        /* Brand/Logo styling */
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: inherit !important;
+        }
+
+        /* Navigation links */
+        .navbar-nav .nav-link {
+            color: inherit !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid currentColor;
+            color: inherit;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle:hover {
+            background-color: currentColor;
+        }
+
+        body.light .theme-toggle:hover {
+            color: #ffffff;
+        }
+
+        body.dark .theme-toggle:hover {
+            color: #1a1a1a;
+        }
+
+        /* Custom toggler for dark mode */
+        body.dark .navbar-toggler {
+            border-color: #ffffff;
+        }
+
+        body.dark .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Demo content styling */
+        .demo-content {
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body.dark .demo-content h1 {
+            color: #ffffff;
+        }
+
+        body.dark .demo-content p {
+            color: #cccccc;
+        }
+/* Updated Hero section styles */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background-image: url('css/img/first.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Default text color */
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Slightly darker overlay for better contrast */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10; /* Ensure content is above the overlay */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Add a subtle text shadow for better readability */
+}
+
+/* Updated Text styles */
+.hero-subtitle {
+    font-size: 2.8rem; /* Slightly larger */
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 0.2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* More modern, readable font */
+}
+
+.hero-company {
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.7rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(255, 255, 255, 0.9); /* Slightly softer white */
+}
+
+.hero-title {
+    font-size: 4.5rem; /* More prominent */
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Updated Button styles with a subtle gradient */
+.btn-hero {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); /* Subtle gradient */
+    border: 1.5px solid white;
+    color: white;
+    padding: 12px 35px; /* Slightly more padding */
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-hero:hover {
+    background: white;
+    color: #555;
+    border-color: white;
+    text-shadow: none; /* Remove text shadow on hover for clarity */
+}
+
+/* Add this CSS */
+#type-writer-text {
+    min-height: 2em; /* Prevents the layout from shifting */
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1.2em;
+    background-color: white;
+    margin-left: 5px;
+    vertical-align: text-bottom;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { background-color: transparent; }
+    50% { background-color: white; }
+}
+
+/* Update the .hero-title and .hero-company styles to be more consistent */
+.hero-company,
+.hero-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+</style>
+</head>
+<body class="light">
+    <!-- Bootstrap 5 Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <!-- Brand/Logo -->
+            <a class="navbar-brand" href="#">MARCI METZGER HOMES</a>
+            
+            <!-- Mobile toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Collapsible navbar content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Center - Navigation Links -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#listings">Listings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lets-move">Let's Move</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                </ul>
+                
+                <!-- Right - Theme Toggle -->
+                <div class="d-flex">
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <span id="theme-icon">☀️</span>
+                        <span id="theme-text">Light</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="container text-center">
+            <h2 class="hero-subtitle">MARCI METZGER</h2>
+            <h1 class="hero-title">
+                <span id="type-writer-text"></span>
+                <span id="cursor" class="cursor"></span>
+            </h1>
+            <button class="btn btn-hero btn-lg mt-4">Call Now</button>
+        </div>
+    </div>
+</section>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (body.classList.contains('light')) {
+                body.classList.remove('light');
+                body.classList.add('dark');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            } else {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+            }
+        }
+    </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+        
+        if (body.classList.contains('light')) {
+            body.classList.remove('light');
+            body.classList.add('dark');
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Dark';
+        } else {
+            body.classList.remove('dark');
+            body.classList.add('light');
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Light';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const textElement = document.getElementById('type-writer-text');
+        const cursor = document.getElementById('cursor');
+        const textArray = ["THE RIDGE REALTY GROUP", "Pahrump Realtor"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = textArray[textIndex];
+            if (!isDeleting) {
+                // Typing
+                textElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            } else {
+                // Deleting
+                textElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                // Done typing, start backspacing after a delay
+                isDeleting = true;
+                setTimeout(type, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                // Done backspacing, move to the next word
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(type, 500);
+            } else {
+                const typingSpeed = isDeleting ? 50 : 100;
+                setTimeout(type, typingSpeed);
+            }
+        }
+        
+        // Start the animation
+        setTimeout(type, 1500);
+    });
+</script>
+</body>
+</html>
