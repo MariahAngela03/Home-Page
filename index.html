@@ -1009,6 +1009,43 @@ body.dark .dropdown-item:hover {
 body.dark .dropdown-text {
     color: #ced4da;
 }
+
+/* New CSS for the Map Section */
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 10px;
+}
+
+
+/* Dark mode styles for the new map section */
+body.dark .map-section {
+    background-color: #212529 !important; /* Dark background */
+    color: #f8f9fa !important; /* Light text */
+}
+
+body.dark .map-section .section-title {
+    color: #ffffff !important;
+}
+
+body.dark .map-section .card {
+    background-color: #343a40 !important; /* Dark card background */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .map-section .text-muted {
+    color: #ced4da !important;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJz3E8mFh1n9uK6pT9Q6L3E6gL6Q6uC6Q6+6e6+yH6A8l9B4g0E4UaU9A9V8e6e6aG6Q6Q6+6e6aG6A6B+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -1413,6 +1450,18 @@ body.dark .dropdown-text {
                     </p>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<section id="map-location" class="py-5 map-section">
+    <div class="container text-center">
+        <h2 class="section-title mb-4" style="font-weight: bold;">OUR LOCATION</h2>
+        <div class="card p-3 shadow-sm rounded-3">
+            <div class="map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.161048639206!2d-115.98982362351221!3d36.00287967978252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c65609339e1443%3A0x6b4c102c7f551c6e!2s3190%20NV-160%20Suite%20F%2C%20Pahrump%2C%20NV%2089048%2C%20USA!5e0!3m2!1sen!2sph!4v1723223067885!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="mt-3 mb-0 text-muted">3190 NV-160 Suite F, Pahrump, Nevada 89048, United States</p>
         </div>
     </div>
 </section>
