@@ -466,13 +466,13 @@ body.dark .section-title {
 }
 
 .carousel-indicators [data-bs-target] {
-    width: 40px; /* Increased size for better visibility */
-    height: 3px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for contrast on light images */
+    width: 60px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
     border: none;
     opacity: 1;
     transition: background-color 0.3s ease;
-    margin: 0 4px; /* Adjusted spacing between indicators */
+    margin: 0 4px;
     border-radius: 0;
 }
 
