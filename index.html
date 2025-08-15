@@ -833,6 +833,30 @@ body.dark .service-card .card-text {
     color: #ced4da;
 }
 
+/* New Hover Effect for Service Cards */
+.service-card-hover-effect {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.service-card-hover-effect:hover {
+    background-color: #007bff;
+    color: white; /* Change text color to white for contrast */
+}
+
+body.dark .service-card-hover-effect:hover {
+    background-color: #007bff;
+    color: white; /* Change text color to dark for contrast */
+}
+
+body.dark .service-card-hover-effect:hover .card-title {
+    color: #ffffff !important;
+}
+
+/* Ensure child elements also change color on hover */
+.service-card-hover-effect:hover .card-title,
+.service-card-hover-effect:hover .card-text {
+    color: inherit; /* Inherit the new color from the parent */
+}
 </style>
 </head>
 <body class="light">
@@ -1127,7 +1151,7 @@ body.dark .service-card .card-text {
         <h2 class="section-title text-center mb-5" style="font-weight: bold;">OUR SERVICES</h2>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="service-card text-center h-100">
+                <div class="service-card service-card-hover-effect text-center h-100">
                     <div class="card-img-top-container">
                         <img src="css/img/picture16.jpg" class="card-img-top" alt="A modern living room with a plant and a laptop on a coffee table">
                     </div>
@@ -1138,7 +1162,7 @@ body.dark .service-card .card-text {
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="service-card text-center h-100">
+                <div class="service-card service-card-hover-effect text-center h-100">
                     <div class="card-img-top-container">
                         <img src="css/img/picture17.jpg" class="card-img-top" alt="A sleek, modern house with a large lawn and a swimming pool">
                     </div>
@@ -1149,7 +1173,7 @@ body.dark .service-card .card-text {
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="service-card text-center h-100">
+                <div class="service-card service-card-hover-effect text-center h-100">
                     <div class="card-img-top-container">
                         <img src="css/img/picture18.jpg" class="card-img-top" alt="A group of three people shaking hands over a laptop, signifying a business deal">
                     </div>
@@ -1162,6 +1186,7 @@ body.dark .service-card .card-text {
         </div>
     </div>
 </section>
+
     <!-- Bootstrap 5 JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
