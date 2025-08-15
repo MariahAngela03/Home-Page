@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bootstrap 5 Navigation Bar</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJz3E8mFh1n9uK6pT9Q6L3E6gL6Q6+6e6+yH6A8l9B4g0E4UaU9A9V8e6e6aG6A6B+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJz3E8mFh1n9uK6pT9Q6L3E6gL6Q6uC6Q6+6e6+yH6A8l9B4g0E4UaU9A9V8e6e6aG6Q6Q6+6e6aG6A6B+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="light">
     <!-- Bootstrap 5 Navbar -->
@@ -75,7 +74,7 @@
                             <img src="css/img/picture1.jpg" alt="Marci Metzger" class="contact-img rounded-circle mb-3">
                             <h3 class="contact-name">MARCI METZGER</h3>
                             <p class="contact-info">REALTOR FOR NEARLY 3 DECADES!</p>
-                            <a href="tel:206-919-6886" class="btn btn-primary btn-contact mt-3">Call Marci Today: 206-919-6886</a>
+                            <a class="btn btn-primary btn-contact mt-3">Call Marci Today: 206-919-6886</a>
                         </div>
                     </div>
                 </div>
@@ -117,7 +116,7 @@
                 <div class="card carousel-card-content">
                     <div class="card-body">
                         <h5 class="card-title" id="description-title">Top Residential Sales Last 5 Years</h5>
-                        <p class="card-text" id="description-text">We're proud to be in the top 1% of all residential sales in the US, with over 25 million homes sold. Our commitment is to quality and integrity, so that we can continue to serve our clients. We believe in our team and client, and we want to make our bond better every year.</p>
+                        <p class="card-text" id="description-text">We helped nearly 90 clients in 2021, and closed 28.5 million in sales! Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.</p>
                     </div>
                 </div>
             </div>
@@ -138,14 +137,14 @@
         <div class="col-lg-6">
           <div class="search-card-alt2">
             <h2 class="search-title-alt2">SEARCH LISTINGS</h2>
-            <form action="#" method="get" class="search-form-alt2">
+            <form action="" method="get" class="search-form-alt2">
               <div class="mb-3">
                 <select class="form-select" aria-label="Location">
                   <option selected disabled hidden>Location</option>
-                  <option value="1">Las Vegas, NV</option>
-                  <option value="2">Pahrump, NV</option>
-                  <option value="3">Henderson, NV</option>
-                  <option value="4">Summerlin, NV</option>
+                  <option value="1">City A</option>
+                  <option value="2">City B</option>
+                  <option value="3">City C</option>
+                  <option value="4">City D</option>
                 </select>
               </div>
               <div class="mb-3">
@@ -159,9 +158,14 @@
               <div class="mb-3">
                 <select class="form-select" aria-label="Sort By">
                   <option selected disabled hidden>Sort by</option>
-                  <option value="1">Price: Low to High</option>
-                  <option value="2">Price: High to Low</option>
-                  <option value="3">Newest Listings</option>
+                  <option value="1">Newest</option>
+                  <option value="2">Oldest</option>
+                  <option value="3">Least Expensive to Most</option>
+                  <option value="4">Most Expensive to Least</option>
+                  <option value="5">Bedrooms (Low to High)</option>
+                  <option value="6">Bedrooms (High to Low)</option>
+                  <option value="7">Bathrooms (Low to High)</option>
+                  <option value="8">Bathrooms (High to Low)</option>
                 </select>
               </div>
               <div class="row g-3 mb-3">
@@ -172,6 +176,8 @@
                     <option value="2">2+</option>
                     <option value="3">3+</option>
                     <option value="4">4+</option>
+                    <option value="5">5+</option>
+                    <option value="6">6+</option>
                   </select>
                 </div>
                 <div class="col-6">
@@ -181,6 +187,8 @@
                     <option value="2">2+</option>
                     <option value="3">3+</option>
                     <option value="4">4+</option>
+                    <option value="5">5+</option>
+                    <option value="6">6+</option>
                   </select>
                 </div>
               </div>
@@ -430,9 +438,18 @@
 <footer class="footer-custom py-5">
     <div class="container text-center">
         <div class="social-icons mb-4">
-            <a href="#" class="social-icon-link me-3"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon-link me-3"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon-link me-3"><i class="fab fa-linkedin-in"></i></a>
+            <a class="social-icon-link me-3">
+                <img src="css/img/facebook.png" alt="Facebook" class="social-icon">
+            </a>
+            <a class="social-icon-link me-3">
+                <img src="css/img/instagram.png" alt="Instagram" class="social-icon">
+            </a>
+            <a class="social-icon-link me-3">
+                <img src="css/img/linkedin-logo.png" alt="LinkedIn" class="social-icon">
+            </a>
+            <a class="social-icon-link me-3">
+                <img src="css/img/yelp.png" alt="LinkedIn" class="social-icon">
+            </a>
         </div>
         <p class="copyright-text mb-4">
             COPYRIGHT © 2023 MARCI METZGER HOMES. ALL RIGHTS RESERVED
@@ -440,7 +457,7 @@
         <div class="powered-by-section">
             <p class="powered-by-text mb-2">POWERED BY</p>
             <a href="https://www.godaddy.com/" target="_blank" rel="noopener noreferrer" class="powered-by-link">
-                <img src="path/to/your/godaddy-logo-white.svg" alt="GoDaddy" class="godaddy-logo">
+                <img src="css/img/godaddy.png" alt="GoDaddy" class="godaddy-logo">
             </a>
         </div>
     </div>
@@ -450,176 +467,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 
-<script>
-    function toggleTheme() {
-        const body = document.body;
-        const themeIcon = document.getElementById('theme-icon');
-        const themeText = document.getElementById('theme-text');
-        
-        if (body.classList.contains('light')) {
-            body.classList.remove('light');
-            body.classList.add('dark');
-            themeIcon.textContent = '🌙';
-            themeText.textContent = 'Dark';
-        } else {
-            body.classList.remove('dark');
-            body.classList.add('light');
-            themeIcon.textContent = '☀️';
-            themeText.textContent = 'Light';
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const textElement = document.getElementById('type-writer-text');
-        const cursor = document.getElementById('cursor');
-        const textArray = ["THE RIDGE REALTY GROUP", "Pahrump Realtor"];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentText = textArray[textIndex];
-            if (!isDeleting) {
-                // Typing
-                textElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            } else {
-                // Deleting
-                textElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                // Done typing, start backspacing after a delay
-                isDeleting = true;
-                setTimeout(type, 1500);
-            } else if (isDeleting && charIndex === 0) {
-                // Done backspacing, move to the next word
-                isDeleting = false;
-                textIndex = (textIndex + 1) % textArray.length;
-                setTimeout(type, 500);
-            } else {
-                const typingSpeed = isDeleting ? 50 : 100;
-                setTimeout(type, typingSpeed);
-            }
-        }
-        
-        // Start the animation
-        setTimeout(type, 1500);
-    });
-
-
-  // Data for the descriptions, matching the carousel slides
-    const descriptions = [
-        {
-            title: 'Top Residential Sales Last 5 Years',
-            text: "We're proud to be in the top 1% of all residential sales in the US, with over 25 million homes sold. Our commitment is to quality and integrity, so that we can continue to serve our clients. We believe in our team and client, and we want to make our bond better every year."
-        },
-        {
-            title: "Don't Just List It...",
-            text: "GET IT SOLD. We'll exhaust every possible avenue to get your property at the fingertips of every possible buyer, getting you top dollar for your home."
-        },
-        {
-            title: "Guide to Buyers",
-            text: "Nobody knows the market like we do. Our team will guide you to your perfect home. We will analyze, negotiate with contractors, loan agreements, and more."
-        }
-    ];
-
-    // Get the carousel and description elements
-    const imageCarousel = document.getElementById('getItSoldImageCarousel');
-    const descriptionTitle = document.getElementById('description-title');
-    const descriptionText = document.getElementById('description-text');
-    const descriptionIndicator = document.getElementById('description-indicator');
-
-    // Add an event listener to the carousel
-    imageCarousel.addEventListener('slid.bs.carousel', function (e) {
-        // Get the index of the newly active slide
-        const activeIndex = e.to;
-
-        // Update the description text based on the active index
-        descriptionTitle.textContent = descriptions[activeIndex].title;
-        descriptionText.textContent = descriptions[activeIndex].text;
-    });
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const logoItems = document.querySelectorAll('.logo-item');
-
-        const observerOptions = {
-            root: null, // relative to the viewport
-            rootMargin: '0px',
-            threshold: 0.5 // trigger when 50% of the item is visible
-        };
-
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop observing once it's visible
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        logoItems.forEach(item => {
-            observer.observe(item);
-        });
-    });
-
-
-   // Photo Gallery JavaScript
-    function changeImage(src, element) {
-        const mainImage = document.getElementById('main-gallery-image');
-        const thumbnails = document.querySelectorAll('.thumbnail');
-
-        // Remove active class from all thumbnails
-        thumbnails.forEach(thumbnail => thumbnail.classList.remove('active'));
-
-        // Add active class to the clicked thumbnail
-        element.classList.add('active');
-
-        // Fade out the old image, change src, then fade it back in
-        mainImage.style.opacity = 0;
-        setTimeout(() => {
-            mainImage.src = src;
-            mainImage.style.opacity = 1;
-        }, 300); // Wait for 300ms for the fade-out transition
-    }
-
-    // Intersection Observer for the photo gallery thumbnails
-    document.addEventListener('DOMContentLoaded', function() {
-        const galleryThumbnails = document.querySelectorAll('.thumbnail-item');
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        galleryThumbnails.forEach(item => {
-            observer.observe(item);
-        });
-    });
-
-
-    // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
-        const hero = document.getElementById('hero-section');
-        let scrollPosition = window.pageYOffset;
-        hero.style.backgroundPositionY = -scrollPosition * 0.5 + 'px';
-    });
-</script>
 </body>
 </html>

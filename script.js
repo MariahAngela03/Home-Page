@@ -19,7 +19,7 @@ function toggleTheme() {
 document.addEventListener('DOMContentLoaded', () => {
     const textElement = document.getElementById('type-writer-text');
     const cursor = document.getElementById('cursor');
-    const textArray = ["THE RIDGE REALTY GROUP", "Pahrump Realtor"];
+    const textArray = ["THE RIDGE REALTY GROUP", "PAHRUMP REALTOR"];
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -60,15 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
 const descriptions = [
     {
         title: 'Top Residential Sales Last 5 Years',
-        text: "We're proud to be in the top 1% of all residential sales in the US, with over 25 million homes sold. Our commitment is to quality and integrity, so that we can continue to serve our clients. We believe in our team and client, and we want to make our bond better every year."
+        text: "We helped nearly 90 clients in 2021, and closed 28.5 million in sales! Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year."
     },
     {
         title: "Don't Just List It...",
-        text: "GET IT SOLD. We'll exhaust every possible avenue to get your property at the fingertips of every possible buyer, getting you top dollar for your home."
+        text: "Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every possible buyer, getting you top dollar for your home."
     },
     {
         title: "Guide to Buyers",
-        text: "Nobody knows the market like we do. Our team will guide you to your perfect home. We will analyze, negotiate with contractors, loan agreements, and more."
+        text: "Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, & more!"
     }
 ];
 
@@ -166,4 +166,16 @@ window.addEventListener('scroll', function() {
     const hero = document.getElementById('hero-section');
     let scrollPosition = window.pageYOffset;
     hero.style.backgroundPositionY = -scrollPosition * 0.5 + 'px';
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.querySelector('.search-form-alt2');
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(event) {
+            // This line prevents the form from submitting and the page from refreshing
+            event.preventDefault();
+            console.log("Search button clicked, but form submission was prevented.");
+        });
+    }
 });
