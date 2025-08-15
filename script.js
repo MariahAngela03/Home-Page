@@ -179,3 +179,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.querySelector('.contact-alt2');
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(event) {
+            // This line prevents the form from submitting and the page from refreshing
+            event.preventDefault();
+            console.log("Search button clicked, but form submission was prevented.");
+        });
+    }
+});
